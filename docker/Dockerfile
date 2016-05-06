@@ -14,6 +14,6 @@ WORKDIR /tmp/pocci-account-center
 
 COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["node", "./server.js"]
