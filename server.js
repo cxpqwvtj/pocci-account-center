@@ -10,10 +10,10 @@ var bodyParser = require('koa-body-parser');
 var app = module.exports = koa();
 
 router
-  .post('/search', user.search)
-  .post('/login', user.login)
-  .post('/save', user.save)
-  .post('/del', user.del);
+  .post(`${process.env.APP_BASE_URL}/search`, user.search)
+  .post(`${process.env.APP_BASE_URL}/login`, user.login)
+  .post(`${process.env.APP_BASE_URL}/save`, user.save)
+  .post(`${process.env.APP_BASE_URL}/del`, user.del);
 
 app
   .use(logger())

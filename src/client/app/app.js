@@ -12,7 +12,7 @@ function app() {
 
   var update = function(user, del) {
     $.ajax({
-      url: (del)? '/del' : '/save',
+      url: (del)? './del' : './save',
       type: 'POST',
       dataType: 'json',
       data: {
@@ -35,7 +35,7 @@ function app() {
 
   self.search = function(keyWord) {
     $.ajax({
-      url: '/search',
+      url: './search',
       type: 'POST',
       dataType: 'json',
       data: {
@@ -57,7 +57,7 @@ function app() {
     };
 
     $.ajax({
-      url: '/login',
+      url: './login',
       type: 'POST',
       dataType: 'json',
       data: account

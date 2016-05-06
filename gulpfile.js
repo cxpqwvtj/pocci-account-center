@@ -1,23 +1,24 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var nodemon = require('gulp-nodemon');
+var baseUrl = '/account';
 
 gulp.task('default', function() {
   gulp
     .src("node_modules/materialize-css/dist/**/*")
-    .pipe(gulp.dest("public"));
+    .pipe(gulp.dest(`public${baseUrl}`));
 
   gulp
     .src(["node_modules/jquery/dist/*", "node_modules/riot/riot+compiler.min.js"])
-    .pipe(gulp.dest("public/js"));
+  .pipe(gulp.dest(`public${baseUrl}/js`));
 
   gulp
     .src("node_modules/material-design-icons-iconfont/dist/**/*")
-    .pipe(gulp.dest("public/icons"));
+    .pipe(gulp.dest(`public${baseUrl}/icons`));
 
   gulp
     .src("src/client/**/*")
-    .pipe(gulp.dest("public"))
+    .pipe(gulp.dest(`public${baseUrl}`))
 
   gulp
     .src(['server.js', 'controllers/*.js'])
@@ -37,6 +38,7 @@ gulp.task('serve', function () {
     script: 'server.js',
     ext: 'js html css',
     env: { 
+      'APP_BASE_URL': baseUrl,
       'USER_APP_PORT': '9999',
       'LDAP_URL': 'ldap://user.pocci.test',
       'LDAP_BASE_DN': 'dc=example,dc=com',
