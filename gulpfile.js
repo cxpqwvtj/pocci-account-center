@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var nodemon = require('gulp-nodemon');
-var baseUrl = '/account';
+var baseUrl = '';
 
 gulp.task('default', function() {
   gulp
@@ -38,7 +38,6 @@ gulp.task('serve', function () {
     script: 'server.js',
     ext: 'js html css',
     env: { 
-      'APP_BASE_URL': baseUrl,
       'USER_APP_PORT': '9999',
       'LDAP_URL': 'ldap://user.pocci.test',
       'LDAP_BASE_DN': 'dc=example,dc=com',
