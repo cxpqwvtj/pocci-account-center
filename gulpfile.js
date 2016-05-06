@@ -16,6 +16,10 @@ gulp.task('default', function() {
     .pipe(gulp.dest("public/icons"));
 
   gulp
+    .src("src/client/**/*")
+    .pipe(gulp.dest("public"))
+
+  gulp
     .src(['server.js', 'controllers/*.js'])
     .pipe(eslint({
       envs: ['node', 'es6'],
